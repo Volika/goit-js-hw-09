@@ -30,6 +30,7 @@ input {
 }
 label {
   display: block;
+  font-size: 20px;
 }
 .timer {
   display: flex;
