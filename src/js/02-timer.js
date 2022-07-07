@@ -25,7 +25,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
       console.log(selectedDates[0]);
-      selectedDate = selectedDates[0];
+    
     if (selectedDates[0] <= options.defaultDate) {
       Notify.failure('Please choose a date in the future')
       btnStart.disabled = true
@@ -41,10 +41,11 @@ const options = {
 const calendar = flatpickr(inputTextEl, options);
 
 function onClickBtnStart() {
-    console.log('onClickBtnStart');
+    // console.log('onClickBtnStart');
     intervalId = setInterval(() => {
     updateTime()
-  }, 1000)
+    }, 1000)
+  
   inputTextEl.disabled = true
   btnStart.disabled = true
 }
@@ -56,6 +57,9 @@ function updateTime() {
     const waitTime = selectedTime - currentTime;
 
   if (waitTime <= 0) {
+    // console.log(waitTime);
+    clearInterval(intervalId);
+        Notify.success(`To select a new date, please reload the page.`);
     return
   } else {
       const { days, hours, minutes, seconds } = convertMs(waitTime);
