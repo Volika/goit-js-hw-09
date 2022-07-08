@@ -10,9 +10,9 @@ function onClickSubmitBtn(evt) {
   let delay = parseInt(formElements.delay.value);
   const step = parseInt(formElements.step.value);
   const amount = parseInt(formElements.amount.value);
-
+  
   createPromiseToCircle(delay, step, amount);
-
+  form.reset();
 }
 
 function createPromiseToCircle(delay, step, amount) {
