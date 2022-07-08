@@ -12,6 +12,7 @@ function onClickSubmitBtn(evt) {
   const amount = parseInt(formElements.amount.value);
   
   createPromiseToCircle(delay, step, amount);
+  
   form.reset();
 }
 
